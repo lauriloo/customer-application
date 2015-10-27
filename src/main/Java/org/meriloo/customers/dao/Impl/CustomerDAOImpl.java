@@ -1,5 +1,7 @@
 package org.meriloo.customers.dao.Impl;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.meriloo.customers.dao.CustomerDAO;
 import org.meriloo.customers.domain.Customer;
@@ -9,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * Created by Lauri on 27.10.2015.
@@ -23,8 +26,18 @@ public class CustomerDAOImpl implements CustomerDAO{
 
     @Override
     public void save(Customer customer) {
-        //System.out.println("Hei!");
+
         sessionFactory.getCurrentSession().save(customer);
-        //System.out.println("Hoi!");
+    }
+
+    @Override
+    public List<Customer> getCustomers() {
+
+        Session session = sessionFactory.getCurrentSession();
+
+        String queryString = "FROM Customer";
+        Query query = session.createQuery(queryString);
+
+        return  query.list();
     }
 }
