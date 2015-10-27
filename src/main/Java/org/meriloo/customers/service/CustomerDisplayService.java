@@ -10,4 +10,8 @@ import java.util.List;
 public interface CustomerDisplayService {
 
     public List<Customer> getAllCustomers();
+
+    public Customer getCustomer(Integer Id);
+
+    public void deleteCustomer(Integer customerId);
 }

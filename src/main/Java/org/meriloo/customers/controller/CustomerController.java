@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -41,17 +42,28 @@ public class CustomerController {
     @RequestMapping(value = "/addnewcustomer", method = RequestMethod.POST)
     public String postAddCustomer(
             @ModelAttribute("customerAttribute") CustomerDTO customer) {
-
         customerRegistrationService.saveNewCustomer(customer);
         return "redirect:/";
     }
 
     @RequestMapping(value = "/listcustomers", method = RequestMethod.GET)
     public String listCustomers(Model model) {
-
         List<Customer> customers = customerDisplayService.getAllCustomers();
         model.addAttribute("listOfCustomersAttribute", customers);
         return "listCustomers";
+    }
+
+    @RequestMapping(value = "/editcustomer", method = RequestMethod.GET)
+    public String editCustomer(@RequestParam("id") Integer customerId, Model model) {
+        Customer customer = customerDisplayService.getCustomer(customerId);
+        model.addAttribute("customerAttribute", customer);
+        return "editCustomer";
+    }
+
+    @RequestMapping(value = "/deletecustomer", method = RequestMethod.GET)
+    public String deleteCustomer(@RequestParam("id") Integer customerId, Model model) {
+        customerDisplayService.deleteCustomer(customerId);
+        return "deleteCustomer";
     }
 
 }

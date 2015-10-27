@@ -24,5 +24,14 @@ public class CustomerDisplayServiceImpl implements CustomerDisplayService {
         return customers;
     }
 
+    @Override
+    public Customer getCustomer(Integer id) {
+        Customer customer = customerDao.getCustomer(id);
+        return customer;
+    }
 
+    @Override
+    public void deleteCustomer(Integer customerId) {
+        customerDao.deleteCustomer(customerId);
+    }
 }
