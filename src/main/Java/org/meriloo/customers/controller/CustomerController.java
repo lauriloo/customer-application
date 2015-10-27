@@ -39,4 +39,10 @@ public class CustomerController {
         return "redirect:/";
     }
 
+    @RequestMapping(value = "/listcustomers", method = RequestMethod.GET)
+    public String listCustomers(Model model) {
+        model.addAttribute("customerAttribute", new CustomerDTO());
+        return "listCustomers";
+    }
+
 }

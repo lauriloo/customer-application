@@ -5,7 +5,9 @@
 <br>
 <br>
 <a href="/addnewcustomer">Add New Customer</a>
-
+<br>
+<br>
+<a href="/listcustomers">List Customers</a>
 
 </body>
 </html>
