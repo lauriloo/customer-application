@@ -16,8 +16,6 @@ public class CustomerDTO {
 
     private  String password;
 
-    private  String rePassword;
-
 
     public String getFirstName() {
         return firstName;
@@ -59,11 +57,6 @@ public class CustomerDTO {
         this.password = password;
     }
 
-    public String getRePassword() {
-        return rePassword;
-    }
 
-    public void setRePassword(String rePassword) {
-        this.rePassword = rePassword;
-    }
+
 }

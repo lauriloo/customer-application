@@ -22,15 +22,15 @@
   <tr>
     <td>First Name</td>
     <td>Last Name</td>
-    <td>Date Of Birt</td>
+    <td>Date Of Birth</td>
     <td>Username</td>
     <td>Edit Customer</td>
     <td>Delete Customer</td>
   </tr>
 
   <c:forEach items="${listOfCustomersAttribute}" var="customer">
-    <c:url var="editUrl" value="/" />
-    <%--<c:url var="editUrl" value="/customer?id=${customer.id}" />--%>
+    <c:url var="editUrl" value="/editcustomer?id=${customer.id}" />
+    <c:url var="deleteUrl" value="/deletecustomer?id=${customer.id}" />
 
     <tr>
       <td><c:out value="${customer.firstName}" /></td>
@@ -38,7 +38,7 @@
       <td><c:out value="${customer.dateOfBirth}" /></td>
       <td><c:out value="${customer.userName}" /></td>
       <td><a href="${editUrl}">Edit</a></td>
-      <td><a href="${editUrl}">Delete</a></td>
+      <td><a href="${deleteUrl}">Delete</a></td>
     </tr>
   </c:forEach>
 
