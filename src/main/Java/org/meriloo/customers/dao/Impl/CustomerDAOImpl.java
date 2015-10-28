@@ -60,5 +60,10 @@ public class CustomerDAOImpl implements CustomerDAO{
         query.executeUpdate();
     }
 
+    @Override
+    public void update(Customer customer) {
+        sessionFactory.getCurrentSession().update(customer);
+    }
+
 
 }
