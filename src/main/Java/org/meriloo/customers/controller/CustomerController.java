@@ -56,14 +56,27 @@ public class CustomerController {
     @RequestMapping(value = "/editcustomer", method = RequestMethod.GET)
     public String editCustomer(@RequestParam("id") Integer customerId, Model model) {
         Customer customer = customerDisplayService.getCustomer(customerId);
-        model.addAttribute("customerAttribute", customer);
+        CustomerDTO customerDTO = customerDisplayService.buildCustomerDTO(customer);
+        model.addAttribute("customerAttribute", customerDTO);
+        model.addAttribute("customerIdAttribute", customerId);
         return "editCustomer";
+    }
+
+    @RequestMapping(value = "/editcustomer", method = RequestMethod.POST)
+    public String postEditCustomer(@RequestParam("id") Integer customerId,
+                                   @ModelAttribute("customerAttribute") CustomerDTO customerDTO
+                                   ) {
+
+        Customer customer = customerDisplayService.getCustomer(customerId);
+        customerDisplayService.updateCustomerData(customer, customerDTO);
+        customerDisplayService.saveOldCustomer(customer);
+        return "redirect:/listcustomers";
     }
 
     @RequestMapping(value = "/deletecustomer", method = RequestMethod.GET)
     public String deleteCustomer(@RequestParam("id") Integer customerId, Model model) {
         customerDisplayService.deleteCustomer(customerId);
-        return "deleteCustomer";
+        return "redirect:/listcustomers";
     }
 
 }
