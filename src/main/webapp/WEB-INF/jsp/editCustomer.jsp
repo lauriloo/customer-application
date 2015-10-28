@@ -36,10 +36,6 @@
       <td>Password:</td>
       <td><form:password path="password"/></td>
     </tr>
-      <%--<tr>
-        <td>Re-Enter Password:</td>
-        <td><form:password path="rePassword"/></td>
-      </tr>--%>
     <tr>
       <td>Date of Birth (dd-mm-yy):</td>
       <td><form:input id="datepicker" path="dateOfBirth"/></td>

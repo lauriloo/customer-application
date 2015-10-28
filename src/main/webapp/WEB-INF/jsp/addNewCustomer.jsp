@@ -22,8 +22,6 @@
                         yearRange: "1900:2015",
                         hideIfNoPrevNext: true,
                         buttonText: "Calendar"
-                        //minDate:+0, //you do not want to show previous date.
-                        //maxDate:+0   // you do not want to show next day.
                     });
         });
     </script>
@@ -56,7 +54,6 @@
             <td><form:password path="password"/></td>
         </tr>
             <td>Date of Birth (dd-mm-yy):</td>
-                <%--<td><form:input path="dateOfBirth"/><div id="datepicker"></div></td>--%>
             <td><form:input id="datepicker" path="dateOfBirth"/></td>
         </tr>
     </table>
@@ -68,7 +65,6 @@
 <a href="/">back</a>
 <br>
 <br>
-<%--<input type="text" name="calendar" id="datepicker">--%>
 
 </body>
 </html>
