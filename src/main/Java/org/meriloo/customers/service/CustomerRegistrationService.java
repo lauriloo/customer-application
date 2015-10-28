@@ -1,5 +1,6 @@
 package org.meriloo.customers.service;
 
+import org.meriloo.customers.domain.Customer;
 import org.meriloo.customers.dto.CustomerDTO;
 
 /**
@@ -9,5 +10,6 @@ public interface CustomerRegistrationService {
 
     public void saveNewCustomer(CustomerDTO customerDTO);
 
-    //public void main();
+    public void hashPassword(Customer customer) throws Exception;
+
 }
