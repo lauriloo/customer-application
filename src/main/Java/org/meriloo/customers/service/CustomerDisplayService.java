@@ -1,6 +1,7 @@
 package org.meriloo.customers.service;
 
 import org.meriloo.customers.domain.Customer;
+import org.meriloo.customers.dto.CustomerDTO;
 
 import java.util.List;
 
@@ -14,4 +15,12 @@ public interface CustomerDisplayService {
     public Customer getCustomer(Integer Id);
 
     public void deleteCustomer(Integer customerId);
+
+    public CustomerDTO buildCustomerDTO(Customer customer);
+
+    public void saveOldCustomer(Customer customer);
+
+    public void updateCustomerData(Customer customer, CustomerDTO customerDTO);
+
+
 }
