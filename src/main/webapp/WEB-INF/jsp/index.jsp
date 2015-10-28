@@ -1,6 +1,6 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+<h1>Customer Mainpage</h1>
 <br>
 <br>
 <br>
@@ -8,6 +8,8 @@
 <br>
 <br>
 <a href="/listcustomers">List Customers</a>
+<br>
+<br>
 
 </body>
 </html>
